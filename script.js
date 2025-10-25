@@ -21,16 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar background opacity on scroll
+    // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    
+
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
     });
 
@@ -58,18 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Button hover effects
-    const buttons = document.querySelectorAll('.primary-button, .secondary-button');
-    
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-2px)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
 
     // CTA button actions
     const ctaButtons = document.querySelectorAll('.primary-button');
@@ -96,48 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Dynamic vibe animation speed based on scroll
-    let animationSpeed = 3;
-    const waves = document.querySelectorAll('.wave');
-    const centerPulse = document.querySelector('.center-pulse');
-
-    window.addEventListener('scroll', function() {
-        const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        animationSpeed = 3 - (scrollPercentage * 2); // Speed up as user scrolls
-        
-        waves.forEach((wave, index) => {
-            wave.style.animationDuration = `${animationSpeed + index * 0.5}s`;
-        });
-        
-        if (centerPulse) {
-            centerPulse.style.animationDuration = `${animationSpeed * 0.7}s`;
-        }
-    });
-
-    // Parallax effect for hero section
-    const hero = document.querySelector('.hero');
-    const heroContent = document.querySelector('.hero-content');
-    const heroVisual = document.querySelector('.hero-visual');
-
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        if (heroContent && heroVisual) {
-            heroContent.style.transform = `translateY(${rate * 0.5}px)`;
-            heroVisual.style.transform = `translateY(${rate * 0.3}px)`;
-        }
-    });
-
-    // Add loading animation
-    window.addEventListener('load', function() {
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease';
-        
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-        }, 100);
-    });
 
     // Mobile menu toggle (basic implementation)
     const navLinks = document.querySelector('.nav-links');
@@ -150,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileMenuBtn.style.background = 'none';
     mobileMenuBtn.style.border = 'none';
     mobileMenuBtn.style.fontSize = '1.5rem';
-    mobileMenuBtn.style.color = '#6366f1';
+    mobileMenuBtn.style.color = '#15c39a';
     mobileMenuBtn.style.cursor = 'pointer';
     mobileMenuBtn.className = 'mobile-menu-btn';
     
