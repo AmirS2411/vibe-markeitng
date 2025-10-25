@@ -351,100 +351,246 @@ body {
     align-items: center;
 }
 
-.glassmorphism-card {
+/* Phone Mockup */
+.phone-mockup {
     position: relative;
-    width: 500px;
-    height: 400px;
+    perspective: 1000px;
+}
+
+.phone-frame {
+    position: relative;
+    width: 320px;
+    height: 640px;
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transform: rotateY(-5deg) rotateX(5deg);
+    transition: transform 0.3s ease;
+}
+
+.phone-frame:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+}
+
+.phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: var(--gray-900);
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
     background: var(--bg-white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-xl);
-    padding: 2rem;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+}
+
+.phone-content {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--bg-white) 100%);
+}
+
+.phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.phone-status svg {
+    opacity: 0.6;
+}
+
+/* Marketing Campaign in Phone */
+.marketing-campaign {
+    padding: 15px;
+}
+
+.campaign-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.logo-circle {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
 }
 
-.card-glow {
-    display: none;
+.campaign-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--primary-green-light);
+    color: var(--primary-green-dark);
+    border-radius: 12px;
+    font-weight: 600;
 }
 
-/* Vibe Animation - Simplified */
-.vibe-animation {
+.campaign-visual {
+    background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--bg-white) 100%);
+    border: 2px solid var(--primary-green);
+    border-radius: 16px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 300px;
-    height: 300px;
-    z-index: 2;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.wave {
+.vibe-waves {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.mini-wave {
     position: absolute;
     border: 2px solid var(--primary-green);
     border-radius: 50%;
-    animation: pulse 3s ease-in-out infinite;
-    opacity: 0.3;
+    animation: miniPulse 3s ease-in-out infinite;
+    opacity: 0.4;
 }
 
-.wave-1 {
-    width: 100px;
-    height: 100px;
+.mini-wave-1 {
+    width: 60px;
+    height: 60px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation-delay: 0s;
 }
 
-.wave-2 {
-    width: 150px;
-    height: 150px;
+.mini-wave-2 {
+    width: 90px;
+    height: 90px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation-delay: 0.5s;
 }
 
-.wave-3 {
-    width: 200px;
-    height: 200px;
+.mini-wave-3 {
+    width: 120px;
+    height: 120px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation-delay: 1s;
 }
 
-.center-pulse {
+.mini-pulse {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background: var(--primary-green);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: centerPulse 2s ease-in-out infinite;
-    box-shadow: 0 0 20px rgba(21, 195, 154, 0.3);
+    animation: miniCenterPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(21, 195, 154, 0.4);
 }
 
-@keyframes pulse {
+.campaign-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-green-dark);
+    text-align: center;
+    z-index: 2;
+}
+
+.campaign-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.mini-stat {
+    flex: 1;
+    background: var(--bg-white);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.mini-stat-icon {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.mini-stat-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.phone-shadow {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 40px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+@keyframes miniPulse {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.3;
+        opacity: 0.4;
     }
     50% {
         transform: translate(-50%, -50%) scale(1.2);
-        opacity: 0.15;
+        opacity: 0.2;
     }
 }
 
-@keyframes centerPulse {
+@keyframes miniCenterPulse {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 0 20px rgba(21, 195, 154, 0.3);
+        box-shadow: 0 0 15px rgba(21, 195, 154, 0.4);
     }
     50% {
         transform: translate(-50%, -50%) scale(1.1);
-        box-shadow: 0 0 30px rgba(21, 195, 154, 0.5);
+        box-shadow: 0 0 25px rgba(21, 195, 154, 0.6);
     }
 }
 
@@ -866,10 +1012,14 @@ body {
         max-width: 300px;
     }
 
-    .glassmorphism-card {
-        width: 100%;
-        max-width: 350px;
-        height: 350px;
+    .phone-frame {
+        width: 280px;
+        height: 560px;
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+
+    .campaign-visual {
+        height: 240px;
     }
 
     .ai-era-content {
